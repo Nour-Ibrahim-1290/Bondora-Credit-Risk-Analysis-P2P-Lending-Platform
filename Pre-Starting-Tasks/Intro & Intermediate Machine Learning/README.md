@@ -18,6 +18,22 @@
 #### Ex.7
   Kaggle Notebook: https://www.kaggle.com/code/nouribrahimda/exercise-machine-learning-competitions
  
+## I. Intermediate Machine Learning Course
+#### Ex.1
+  Kaggle Notebook: https://www.kaggle.com/code/nouribrahimda/exercise-introduction
+#### Ex.2
+  Kaggle Notebook: https://www.kaggle.com/code/nouribrahimda/exercise-missing-values
+#### Ex.3
+  Kaggle Notebook: https://www.kaggle.com/code/nouribrahimda/exercise-categorical-variables
+#### Ex. 4
+  Kaggle Notebook: https://www.kaggle.com/code/nouribrahimda/exercise-pipelines
+#### Ex.5
+  Kaggle Notebook: https://www.kaggle.com/code/nouribrahimda/exercise-cross-validation
+#### Ex.6
+  Kaggle Notebook: https://www.kaggle.com/code/nouribrahimda/exercise-xgboost
+#### Ex.7
+  Kaggle Notebook: https://www.kaggle.com/code/nouribrahimda/exercise-data-leakage
+ 
 
 
 
