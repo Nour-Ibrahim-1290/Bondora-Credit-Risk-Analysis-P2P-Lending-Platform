@@ -3,17 +3,25 @@
 Content:
 ---------
 1- Requirenment & Analysis
+
 2- Project Planning
+
 3- Design
+
 4- Coding & Implementation
+
 5- Development
+
 6- Deployment
+
 7. Conclusion
 
 
 ## 1. Reuirenment & Analysis
 1.1 Introduction
+
 1.2 About Data
+
 1.3 Tools and Technologies
 
 ### 1.1 Introduction
@@ -30,7 +38,7 @@ comprises of demographic and financial information of borrowers, and loan transa
 - In order to make rational decisions, lenders want to minimize the risk of default of each lending decision, and realize the return that compensates for the risk.
 
 ### 1.3 Tools & Technologies
-- During this project we're using python for performing the analysis process.
+- During this project we're using Python for coding.
 - Pandas module for Data Preprocessing
 - Pandas, numpy, matlpotlib.pyplot, and seaborn for EDA.
 - Pandas, numpy, PCA for Feature Engineering.
