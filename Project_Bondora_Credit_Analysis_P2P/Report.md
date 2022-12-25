@@ -2,19 +2,12 @@
 
 Content:
 ---------
-1- Requirenment & Analysis
-
-2- Project Planning
-
-3- Design
-
-4- Coding & Implementation
-
-5- Development
-
-6- Deployment
-
-7. Conclusion
+1. Requirenment & Analysis
+2. Project Planning
+3. Design
+4. Development (Coding & Implementation)
+5. Deployment
+6. Conclusion
 
 
 ## 1. Reuirenment & Analysis
@@ -81,6 +74,7 @@ After careful examination of the data set, we decided to have thses Design Attri
 4.5. Target variable creation for risk evaluation and assesment.
 4.6. Regression Modeling.
 4.7. Pipelines Creation (Classification and Regression).
+4.8. UI: App Creation.
 
 ### 4.1 Data Preprocessing:
 - The dataset contains **112** Columns and  **134529** Rows Range Index
@@ -247,6 +241,7 @@ from sklearn.model_selection import RandomizedSearchCV
 ### 4.5 Target variable creation for risk evaluation and assesment
 After a thorught reaserch to identify 3 new Procedures to evaluate the 3 target assesment features agrred upon on the Planning stage,
 We came up with theses Algorithms...
+
 **Eligible Loan Amount**
 -- add pic from Report -- 
 
@@ -257,14 +252,142 @@ We came up with theses Algorithms...
 -- add pic from Report --
 
 - The loan tenure that has been used in the 3 procedures above is calculated as follows...
+
 **Loan Tenure**
 
 -- add pic from Report --
 
+- Theses 3 Target variable Creation Steps were added at the preprocessing Stage of the Development Cycle along with LoanStatus variable creation.
+- Know we;re ready to go a head with Mu;tiRegression Modeling.
+
 ### 4.6 Regression Modeling
 - In order to prepare the dataset for MultiRegeression Modeling we had to revisit the dataset at the Stage of Features Engineering,
 - There we changed 2 major steps of FE, 
-      1. Categorical Fetaure Encoding.
-      2. PCA
-**1. Categorical Fetaure Encoding**
+      
+      1. Feature Selection
+      
+      2. Categorical Fetaure Encoding.
+      
+      3. PCA
+      
+**1. Feature Selection**
 
+- The highly correlated set of attributes needs to be dropped to avoid intercorrelation in the dataset has changed to be...
+
+```
+# Now we can drop these features from our dataset
+X.drop(columns= ['LoanTenure', 'ROI', 'Amount', 'TotalAmount', 'Total_Loan_Amnt', 'AmountOfPreviousLoansBeforeLoan', 'NoOfPreviousLoansBeforeLoan'], inplace = True )
+```
+
+
+**2. Categorical Fetaure Encoding**
+
+- Following a dummy variables creating approach instead of label encoding.
+
+```
+X = pd.get_dummies(X, drop_first=True)
+```
+
+**3. PCA**
+
+- Now the data set has **143** attributes.
+
+- Changing the PCA usage (n_components=110) to go along with the new Changes in the dataset...
+
+```
+PCA(n_components=110)
+```
+Which allowed preseving almsot 99% of information of the dataset.
+
+**Classification Modeling Changes**
+
+- These Changes in Feture Enginnering in turn afftected our Choice of the Best performing Classification Model, which now is 
+```
+from sklearn.linear_model import LogisticRegression
+
+logreg = LogisticRegression(random_state=0)
+logreg.fit(X_train, y_train)
+y_pred = logreg.predict(X_test)
+```
+
+--- pic_13 ---
+
+**MultiRegression Modeling**
+
+- We have trained 3 different Models with their default values, and with Hyperparameter Tunning to select the higest performing Model.
+- We have selected mean_square_error, mean_square_error_percentage, and r2_score from sklearn.metrics to evaluate selected models.
+- The three choosen models (all linear) are...
+```
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
+from sklearn.linear_model import Lasso
+
+# for hyperparameter tunning
+from sklearn.model_selection import RandomizedSearchCV
+```
+
+- The best performing Regreesion Model was Ridge with default parameters by scikit-learn.
+```
+from sklearn.linear_model import Ridge
+
+rid_reg = Ridge()
+
+rid_reg.fit(X_train, y_train)
+
+y_pred_base = rid_reg.predict(X_test)
+```
+
+--- pic14 ---
+
+### 4.7 Pipelines Creation (Classification and Regression)
+
+- Now Automating all the Important steps of Feature Engieering, Modeling into 2 Pipelines.
+- There'll be 2 common steps of the Pipelines which are
+           - Features Scaling.
+           - PCA
+- for classification Pipeline, we'll use Logostic Regression
+- for Regression Pipeline, we'll use Ridge.
+- The output is 2 pickle files for the 2 pipelines to be used in UI.
+
+```
+# Create Classification Pipeline
+pipeline_class = Pipeline([
+    ('stdscaler', StandardScaler()),
+    ('pca', PCA(n_components=110)),
+    ('Classifier', LogisticRegression(random_state=0))
+])
+
+# Create Regression Model
+pipeline_reg = Pipeline([
+    ('stdscaler', StandardScaler()),
+    ('pca', PCA(n_components=110)),
+    ('Regressor', Ridge(random_state=0))
+])
+```
+
+- Dumping 2 pipeline files
+```
+pickle.dump(pipeline_class, open('pipeline_class.pkl', 'wb'))
+pickle.dump(pipeline_reg, open('pipeline_reg.pkl', 'wb'))
+```
+
+### 4.8. UI: App Creation
+- Using Flask API, and simple HTML5, and CSS; we created a web application with v01 as specified during the planning Step of the analysis.
+- v02 is currently under development
+- During v01, developed files contained:
+      1. app.py --- for Flask to run the app and steer it's way around different files.
+      2. pipelines.py --- fpr preprocessing of input data from the Client and make it match the attributes expected by the Pipelines file, furthermore run the pipelines files.
+      3. index.html --- v01 fourm (individual borrower entry using a fourm)
+      4. submit.html --- v01 output fourm of expected assesment criteria's
+      
+  --- App Fourm Pic ---
+  --- OUTput fourm pic---
+  
+## 5. Deployment
+- After agrreing on AWS-EC2 as the deployment platform for this app, we deployed the app for production.
+- App link: 
+
+## 6. Conclusion:
+- We've fullfilled all assemnet reauiremnets of the Client.
+- We've developed 1st vesion of UI requiremnet (v01) which is Single borrower data entry uding a fourm.
+- (v02) Multiple borrower data entry via CSV file upload is under development...
