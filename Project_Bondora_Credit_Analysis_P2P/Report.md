@@ -68,12 +68,19 @@ After careful examination of the data set, we decided to have thses Design Attri
 ## 4. Development (Coding & Implementation)
 
 4.1. Data Preprocessing.
+
 4.2. Explaratory Data Analysis.
+
 4.3. Feature Engineering
+
 4.4. Classification Modeling (Probability of Default).
+
 4.5. Target variable creation for risk evaluation and assesment.
+
 4.6. Regression Modeling.
+
 4.7. Pipelines Creation (Classification and Regression).
+
 4.8. UI: App Creation.
 
 ### 4.1 Data Preprocessing:
