@@ -269,12 +269,10 @@ We came up with theses Algorithms...
 
 ### 4.6 Regression Modeling
 - In order to prepare the dataset for MultiRegeression Modeling we had to revisit the dataset at the Stage of Features Engineering,
-- There we changed 2 major steps of FE, 
-      
+- There we changed 2 major steps of FE...
+
       1. Feature Selection
-      
-      2. Categorical Fetaure Encoding.
-      
+      2. Categorical Fetaure Encoding      
       3. PCA
       
 **1. Feature Selection**
