@@ -302,7 +302,7 @@ from sklearn.model_selection import RandomizedSearchCV
 - After a thorught reaserch to identify 3 new Procedures to evaluate the 3 target assesment features agrred upon on the Planning stage,
 We came up with theses Algorithms...
 
-- Refer to this [Report](https://github.com/Technocolabs100/Financial-risk-modelling-of-leading-European-P2P-lending-platform-Bondora/blob/main/Bondora_Credit_Risk_Analysis_Target_Features_Report_2022_12_02.pdf) for clarification on creation Algorithms.
+- Refer to this [Report](https://github.com/Nour-Ibrahim-1290/Bondora-Credit-Risk-Analysis-P2P-Lending-Platform/blob/main/Project_Bondora_Credit_Analysis_P2P/Bondora_Credit_Risk_Analysis_Target_Features_Report_2022_12_02.pdf) for clarification on creation Algorithms.
 
 - Theses 3 Target variable Creation Steps were added at the preprocessing Stage of the Development Cycle along with LoanStatus variable creation.
 - Know we're ready to go a head with Mu;tiRegression Modeling.
