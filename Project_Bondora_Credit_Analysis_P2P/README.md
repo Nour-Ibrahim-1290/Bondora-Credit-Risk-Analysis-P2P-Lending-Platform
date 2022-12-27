@@ -1,8 +1,9 @@
 # Credit Risk Analysis for Bondora online P2P Platform
 
-Team
-------
+Project Team
+-------------
 Team Lead: [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
+
 Team members:
 1. [Simran Katyar](https://github.com/SimranKatyar)
 2. [Babli Wadhwa](https://github.com/BabliWadhwa)
