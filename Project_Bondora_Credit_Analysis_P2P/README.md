@@ -2,7 +2,7 @@
 
 ### Project Team
 
-Mentor: Yasin Shah 
+Mentor: [Yasin Shah](https://github.com/Technocolabs100) 
 
 Team Lead: [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
 
