@@ -298,23 +298,11 @@ from sklearn.model_selection import RandomizedSearchCV
             [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
 
 ### 4.5 Target variable creation for risk evaluation and assesment
-After a thorught reaserch to identify 3 new Procedures to evaluate the 3 target assesment features agrred upon on the Planning stage,
+
+- After a thorught reaserch to identify 3 new Procedures to evaluate the 3 target assesment features agrred upon on the Planning stage,
 We came up with theses Algorithms...
 
-**Eligible Loan Amount**
--- add pic from Report -- 
-
-**Equaty Monthly Installments**
--- add pic from Report --
-
-**Preferred ROI**
--- add pic from Report --
-
-- The loan tenure that has been used in the 3 procedures above is calculated as follows...
-
-**Loan Tenure**
-
--- add pic from Report --
+- Refer to this [Report](https://github.com/Technocolabs100/Financial-risk-modelling-of-leading-European-P2P-lending-platform-Bondora/blob/main/Bondora_Credit_Risk_Analysis_Target_Features_Report_2022_12_02.pdf) for clarification on creation Algorithms.
 
 - Theses 3 Target variable Creation Steps were added at the preprocessing Stage of the Development Cycle along with LoanStatus variable creation.
 - Know we're ready to go a head with Mu;tiRegression Modeling.
