@@ -1,7 +1,9 @@
 # Credit Risk Analysis for Bondora online P2P Platform
 
-Project Team
--------------
+### Project Team
+
+Mentor: Yasin Shah 
+
 Team Lead: [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
 
 Team members:
