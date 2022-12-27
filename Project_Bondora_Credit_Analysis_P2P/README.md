@@ -12,12 +12,12 @@ Team members:
 3. [Ashwini Sanjay](https://github.com/AshwiniKakulte)
 4. [Subhadeep Paul](https://github.com/Subhadeepgithib10)
 5. [Ritu Mahali](https://github.com/ritumahali96)
-6. [Prashant Kumar](https://github.com/kumarprashant0797)
-7. [Umair Azad](https://github.com/Umair-Azad)
-8. [Abdul Rafay](https://github.com/ABDULRAFAY757)
-9. [Ahmed Sabry](https://github.com/Foxdanger1412)
-10.[Nikhil Navnath](https://github.com/nikhilpokharkar)
-11.[Akshay Khot](https://github.com/AKSHA1498)
+6. [Ahmed Sabry](https://github.com/Foxdanger1412)
+7. [Abdul Rafay](https://github.com/ABDULRAFAY757)
+8. [Umair Azad](https://github.com/Umair-Azad)
+9. [Prashant Kumar](https://github.com/kumarprashant0797) 
+10. [Nikhil Navnath](https://github.com/nikhilpokharkar)
+11. [Akshay Khot](https://github.com/AKSHA1498)
 
 Content:
 ---------
@@ -129,6 +129,8 @@ df.rename(columns={'DefaultDate':'LoanStatus'}, inplace = True)
  - We sew in numeric column distribution there are many columns which are present as numeric but they are actually categorical as per data description such as Verification Type, Language Code, Gender, Use of Loan, Education, Marital Status,EmployementStatus, OccupationArea etc.., So we will convert these features to categorical features.
  - Now, we have a clean optimized dataset, and we're ready for EDA.
 
+**Developers:** All team created their version individually, and we decided upon which steps to finalize.
+
 ### 4.2 Exploratory Data Analysis (EDA):
 - While examining the data set through visualizations, There're some interesting trands showed in the data as the next few images suggest...
 
@@ -170,6 +172,8 @@ sns.boxplot(df.Age[df.LoanStatus=='Default'], ax=axs[2]);
 
 
 - After we're throughly know evry attribute in the dataset, It's time for Feature Engineering...
+
+**Developers:** All team created their version individually, and we decided upon which steps to finalize.
 
 ### 4.3 Feature Engineering
 
@@ -269,6 +273,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0,
 ```
 - We have preserved 25% of the data to test after modeling.
 
+**Developers:** All team created their version individually, and we decided upon which steps to finalize.
+
 ### 4.4 Classification Modeling (Probability of Default)
 - In this step we'll be training 4 different Models using default settings in scikit-leran, and with Hyperparameter tunning using RandomizedCV to select the highest performance model to intergrate later into the classification pipeline.
 - We used classification_report(precision | recall | f1-score ), confusion_matrix, accuracy_score, and roc_auc_score metrics from sklearn.metrics to asses each model.
@@ -286,6 +292,10 @@ from sklearn.model_selection import RandomizedSearchCV
 
 ![pic_12](https://user-images.githubusercontent.com/93732090/209706964-de0c8915-874b-4187-a694-5172038b8188.png)
 
+
+**Developers:** [Ashwini Sanjay](https://github.com/AshwiniKakulte), [Ritu Mahali](https://github.com/ritumahali96),
+            [Subhadeep Paul](https://github.com/Subhadeepgithib10), [Abdul Rafay](https://github.com/ABDULRAFAY757),
+            [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
 
 ### 4.5 Target variable creation for risk evaluation and assesment
 After a thorught reaserch to identify 3 new Procedures to evaluate the 3 target assesment features agrred upon on the Planning stage,
@@ -307,7 +317,9 @@ We came up with theses Algorithms...
 -- add pic from Report --
 
 - Theses 3 Target variable Creation Steps were added at the preprocessing Stage of the Development Cycle along with LoanStatus variable creation.
-- Know we;re ready to go a head with Mu;tiRegression Modeling.
+- Know we're ready to go a head with Mu;tiRegression Modeling.
+
+**Developers:**  [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
 
 ### 4.6 Regression Modeling
 - In order to prepare the dataset for MultiRegeression Modeling we had to revisit the dataset at the Stage of Features Engineering,
@@ -325,7 +337,6 @@ We came up with theses Algorithms...
 # Now we can drop these features from our dataset
 X.drop(columns= ['LoanTenure', 'ROI', 'Amount', 'TotalAmount', 'Total_Loan_Amnt', 'AmountOfPreviousLoansBeforeLoan', 'NoOfPreviousLoansBeforeLoan'], inplace = True )
 ```
-
 
 **2. Categorical Fetaure Encoding**
 
@@ -359,9 +370,9 @@ y_pred = logreg.predict(X_test)
 
 ![pic_13](https://user-images.githubusercontent.com/93732090/209707011-65c83441-8189-440b-b958-bbd8f9965ba6.png)
 
+**Developers:** [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
 
 **MultiRegression Modeling**
-
 - We have trained 3 different Models with their default values, and with Hyperparameter Tunning to select the higest performing Model.
 - We have selected mean_square_error, mean_square_error_percentage, and r2_score from sklearn.metrics to evaluate selected models.
 - The three choosen models (all linear) are...
@@ -386,6 +397,9 @@ y_pred_base = rid_reg.predict(X_test)
 ```
 
 ![pic_14](https://user-images.githubusercontent.com/93732090/209707032-79c80f0d-a195-4caa-9884-7065847401af.png)
+
+**Developers:** [Ashwini Sanjay](https://github.com/AshwiniKakulte), [Subhadeep Paul](https://github.com/Subhadeepgithib10),
+            [Ritu Mahali](https://github.com/ritumahali96), [Ahmed Sabry](https://github.com/Foxdanger1412)    
 
 
 ### 4.7 Pipelines Creation (Classification and Regression)
@@ -419,6 +433,8 @@ pipeline_reg = Pipeline([
 pickle.dump(pipeline_class, open('pipeline_class.pkl', 'wb'))
 pickle.dump(pipeline_reg, open('pipeline_reg.pkl', 'wb'))
 ```
+**Developers:** [Simran Katyar](https://github.com/SimranKatyar), [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
+
 
 ### 4.8. UI: App Creation
 - Using Flask API, and simple HTML5, and CSS; we created a web application with v01 as specified during the planning Step of the analysis.
@@ -432,10 +448,14 @@ pickle.dump(pipeline_reg, open('pipeline_reg.pkl', 'wb'))
       
       4. submit.html --- v01 output fourm of expected assesment criteria's
       
-  
+**Developers:** [Simran Katyar](https://github.com/SimranKatyar), [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
+
+
 ## 5. Deployment
 - After agrreing on AWS-EC2 as the deployment platform for this app, we deployed the app for production.
 - [App link](http://13.126.68.187:8080/)
+
+**Developers:** [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
 
 ## 6. Conclusion:
 - We've fullfilled all assemnet reauiremnets of the Client.
