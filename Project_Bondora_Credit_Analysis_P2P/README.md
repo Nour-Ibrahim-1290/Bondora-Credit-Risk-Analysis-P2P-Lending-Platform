@@ -9,6 +9,7 @@ Content:
 5. Deployment
 6. Conclusion
 
+![SDLC](https://user-images.githubusercontent.com/93732090/209706167-09404f7c-ef4f-47fc-8a54-3771bee17f5b.png)
 
 ## 1. Reuirenment & Analysis
 1.1 Introduction
@@ -62,8 +63,15 @@ After careful examination of the data set, we decided to have thses Design Attri
 3. a MultiRegression Pipeline to asses all three new defined attributes.
 4. A Web App as stated in the requirenments by the Client, yet the set of attributes to be defined after throughtful analysis of the attributes provided of the dataset.
 
+![Full Design - High Level](https://user-images.githubusercontent.com/93732090/209706230-5532394b-36c2-49af-85fb-b2a2531f7609.png)
+
 **Low Level Design**
---- a Diagram defining all necessary steps of implementation in a Low Level Design---
+
+![Pipelining_flowchart](https://user-images.githubusercontent.com/93732090/209706272-0560ca16-b08d-4a58-beb3-113560baffe6.png)
+
+
+![AppCreation-flowchart](https://user-images.githubusercontent.com/93732090/209706284-59ee341a-4f5d-4c92-a1be-60dc1bb04ed1.png)
+
 
 ## 4. Development (Coding & Implementation)
 
@@ -105,17 +113,25 @@ df.rename(columns={'DefaultDate':'LoanStatus'}, inplace = True)
 ### 4.2 Exploratory Data Analysis (EDA):
 - While examining the data set through visualizations, There're some interesting trands showed in the data as the next few images suggest...
 
---- pic1 #Defaulters---
+![pic_01](https://user-images.githubusercontent.com/93732090/209706346-3b03f75f-894f-4e2d-8e6c-b136ba34ef46.png)
+
 
 - **Now setting the focus of our Exploration Analysis on the Defaulters only, we see that...**
 
 **In the Categorical Attributes**
---- pic2 ---
---- pic3 ---
---- pic4 ---
---- pic5 ---
---- pic6 ---
---- pic7 ---
+
+![pic_02](https://user-images.githubusercontent.com/93732090/209706675-3115a5c2-2f61-483c-b913-a4861166a00d.png)
+
+![pic_03](https://user-images.githubusercontent.com/93732090/209706686-34f3ee2a-0889-4ffd-ae92-91d5dce9e4f5.png)
+
+![pic_04](https://user-images.githubusercontent.com/93732090/209706691-e9d53626-29b4-4523-8cdf-9c422a18718d.png)
+
+![pic_05](https://user-images.githubusercontent.com/93732090/209706702-c7bc3e86-379f-457e-8282-98d420d1bb82.png)
+
+![pic_06](https://user-images.githubusercontent.com/93732090/209706715-b7c3c408-6ce6-4ff3-bff5-ffbddf4ef9dc.png)
+
+![pic_07](https://user-images.githubusercontent.com/93732090/209706721-2b2daf27-7ae6-4d1f-9f88-1aebad5d7f67.png)
+
 
 **In the Numerical Attributes**
 ```
@@ -125,9 +141,14 @@ sns.histplot(df.Age[df.LoanStatus=='Default'], ax=axs[0]);
 sns.distplot(df.Age[df.LoanStatus=='Default'], ax=axs[1])
 sns.boxplot(df.Age[df.LoanStatus=='Default'], ax=axs[2]);
 ```
---- pic08 ---
---- pic09 ---
---- pic10 ---
+
+![pic_08](https://user-images.githubusercontent.com/93732090/209706741-60af511a-a51a-4d4e-ab30-4e9c5b039acd.png)
+
+![pic_09](https://user-images.githubusercontent.com/93732090/209706756-f77c4878-5345-400e-99a8-3c8f5949f58a.png)
+
+
+![pic_10](https://user-images.githubusercontent.com/93732090/209706813-fc55645d-c6b4-46b4-9ecf-9f9d62b82061.png)
+
 
 - After we're throughly know evry attribute in the dataset, It's time for Feature Engineering...
 
@@ -214,7 +235,8 @@ sum(pca2.explained_variance_ratio_) * 100
 ```
 - Using 2-d PCA we're preseved **94.76%** of information.
 
---- pic_11 ---
+![pic_11](https://user-images.githubusercontent.com/93732090/209706945-a9f42648-d939-4c69-85f9-311380a2c48b.png)
+
 
 **g. Splitting data into training and testing sets**
 ```
@@ -243,7 +265,8 @@ from sklearn.model_selection import RandomizedSearchCV
 ```
 - The best performing Classification Model at this stage of Analysis was GradientBoostingClassifier, with the follwing results on evaluating metrics
 
---- pic_12 ---
+![pic_12](https://user-images.githubusercontent.com/93732090/209706964-de0c8915-874b-4187-a694-5172038b8188.png)
+
 
 ### 4.5 Target variable creation for risk evaluation and assesment
 After a thorught reaserch to identify 3 new Procedures to evaluate the 3 target assesment features agrred upon on the Planning stage,
@@ -315,7 +338,8 @@ logreg.fit(X_train, y_train)
 y_pred = logreg.predict(X_test)
 ```
 
---- pic_13 ---
+![pic_13](https://user-images.githubusercontent.com/93732090/209707011-65c83441-8189-440b-b958-bbd8f9965ba6.png)
+
 
 **MultiRegression Modeling**
 
@@ -342,7 +366,8 @@ rid_reg.fit(X_train, y_train)
 y_pred_base = rid_reg.predict(X_test)
 ```
 
---- pic14 ---
+![pic_14](https://user-images.githubusercontent.com/93732090/209707032-79c80f0d-a195-4caa-9884-7065847401af.png)
+
 
 ### 4.7 Pipelines Creation (Classification and Regression)
 
@@ -381,16 +406,17 @@ pickle.dump(pipeline_reg, open('pipeline_reg.pkl', 'wb'))
 - v02 is currently under development
 - During v01, developed files contained:
       1. app.py --- for Flask to run the app and steer it's way around different files.
+      
       2. pipelines.py --- fpr preprocessing of input data from the Client and make it match the attributes expected by the Pipelines file, furthermore run the pipelines files.
+      
       3. index.html --- v01 fourm (individual borrower entry using a fourm)
+      
       4. submit.html --- v01 output fourm of expected assesment criteria's
       
-  --- App Fourm Pic ---
-  --- OUTput fourm pic---
   
 ## 5. Deployment
 - After agrreing on AWS-EC2 as the deployment platform for this app, we deployed the app for production.
-- App link: 
+- [App link](http://13.126.68.187:8080/)
 
 ## 6. Conclusion:
 - We've fullfilled all assemnet reauiremnets of the Client.
