@@ -387,7 +387,7 @@ y_pred_base = rid_reg.predict(X_test)
 ![pic_14](https://user-images.githubusercontent.com/93732090/209707032-79c80f0d-a195-4caa-9884-7065847401af.png)
 
 **Developers:** [Ashwini Sanjay](https://github.com/AshwiniKakulte), [Subhadeep Paul](https://github.com/Subhadeepgithib10),
-            [Ritu Mahali](https://github.com/ritumahali96), [Ahmed Sabry](https://github.com/Foxdanger1412)    
+            [Ritu Mahali](https://github.com/ritumahali96), [Ahmed Sabry](https://github.com/Foxdanger1412), [Nour M. Ibrahim](https://github.com/Nour-Ibrahim-1290)
 
 
 ### 4.7 Pipelines Creation (Classification and Regression)
